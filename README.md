@@ -4,15 +4,25 @@
 
 Project Overview:
 This project explores U.S. presidential election donations from December 2019 to October 2020, specifically for Joe Biden and Donald Trump. The goal is to understand the relationship between political donations and election outcomes. By analyzing how contributions were distributed across different states, professions, and donor demographics, the project sheds light on the broader implications of political donations on election results.
+
 The objective was not only to assess the monetary support for the 2020 U.S. presidential candidates but also to understand the broader impact of contributions on the final election outcome. This analysis required a thorough, step-by-step process of data collection, cleaning, transformation, and visualization using SQL in BigQuery and Tableau.
+
+
 Data Collection Challenges:
+
 The dataset for this project was massive, spanning millions of rows from December 2019 to October 2020. As a result of its size, I had to download the data in 48 separate files, each under 300 MB, as the platform did not allow larger downloads in one go. This approach introduced additional complexity, as it required consolidating all files into a single dataset for analysis.
 The data, sourced from the Federal Election Commission (FEC), included individual contributions for both Biden and Trump, along with details such as contributor city, state, occupation, and the amount donated.
+
+
 Data Preparation and Cleaning:
+
 Once all 48 files were successfully downloaded, I began the process of data cleaning and preparation in Python and BigQuery. Here’s a breakdown of the key steps:
 All of the datasets initially had 78 columns each, but many of them were not necessary for the analysis. Using Python, I reduced the number of columns to just 16 important columns that were relevant to the project. These included key fields like contributor_city, contribution_amount, contributor_state, and transaction_date, among others.
+
 Although I could have performed this column selection step in SQL, I chose to do it in Python to further involve Python in the project. Python provided flexibility in filtering and managing the datasets efficiently. By doing this, I ensured that only the most important data was retained, making the analysis both cleaner and faster.
+
 This step was crucial for streamlining the large dataset and focusing only on the essential information for further analysis and visualization. Then I started more cleaning process in BigQuery and Here’s a breakdown of the key steps:
+
 1.	Merging Datasets:
 ○	The first challenge was to append all the data tables. Using SQL, I merged all 48 datasets into a single master table, named “all_month_2019_2020,” which contained over 14.4 million rows.
 ○	This step alone was critical in ensuring that the data was ready for analysis.
